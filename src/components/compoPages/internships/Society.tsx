@@ -1,14 +1,14 @@
 'use client';
 
 import { FaArrowLeft, FaExternalLinkAlt, FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaCode, FaLightbulb, FaShieldAlt, FaGlobe } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import Footer from "../../Footer";
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Society = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     AOS.init({
@@ -19,7 +19,7 @@ const Society = () => {
   }, []);
 
   const goBack = () => {
-    navigate('/', { state: { scrollTo: 'works' } });
+    router.push('/#works');
     setTimeout(() => {
       const worksSection = document.getElementById('works');
       if (worksSection) {

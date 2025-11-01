@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import fingerprintImg from "/finger.png"
+import type { StaticImageData } from 'next/image'
 
 interface LoadingProps {
   onComplete?: () => void
@@ -164,7 +165,7 @@ export default function Loading({ onComplete }: LoadingProps) {
             }}
           >
             <img
-              src={fingerprintImg}
+              src={typeof fingerprintImg === 'string' ? fingerprintImg : fingerprintImg.src}
               alt="Fingerprint"
               style={{
                 width: "180px",

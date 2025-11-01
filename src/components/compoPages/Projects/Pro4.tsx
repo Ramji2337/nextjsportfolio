@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import Footer from "../../Footer";
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Index = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   
   useEffect(() => {
     AOS.init({
@@ -21,7 +21,7 @@ const Index = () => {
 
   // Navigate to projects section on home page
   const goBack = () => {
-    navigate('/', { state: { scrollTo: 'projects' } });
+    router.push('/#projects');
     // Use setTimeout to ensure navigation completes before scrolling
     setTimeout(() => {
       const projectsSection = document.getElementById('projects');
