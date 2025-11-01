@@ -1,14 +1,14 @@
 'use client';
 
 import { FaArrowLeft, FaExternalLinkAlt, FaCalendarAlt, FaServer, FaLock } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import Footer from "../../Footer";
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const LuxorHoliday = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,7 +20,7 @@ const LuxorHoliday = () => {
   }, []);
 
   const goBack = () => {
-    navigate('/', { state: { scrollTo: 'works' } });
+    router.push('/#works');
     setTimeout(() => {
       const worksSection = document.getElementById('works');
       if (worksSection) {
